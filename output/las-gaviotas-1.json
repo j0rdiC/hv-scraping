@@ -1,0 +1,54 @@
+{
+  "name": "Las Gaviotas",
+  "currency": "EUR",
+  "rooms": [
+    {
+      "name": "Habitaci\u00f3n Doble",
+      "tarifs": [
+        {
+          "Tarifa flexible": {
+            "Desayuno Incluido": 142,
+            "Media Pensi\u00f3n +38,00 \u20ac": 180
+          }
+        },
+        {
+          "\u00a1Oferta exclusiva web oficial!": {
+            "Media Pensi\u00f3n": 171
+          }
+        }
+      ]
+    },
+    {
+      "name": "Suite Premium",
+      "tarifs": [
+        {
+          "\u00a1Oferta exclusiva web oficial!": {
+            "Media Pensi\u00f3n": 171
+          }
+        },
+        {
+          "Tarifa flexible": {
+            "Desayuno Incluido": 152,
+            "Media Pensi\u00f3n +38,00 \u20ac": 190
+          }
+        }
+      ]
+    },
+    {
+      "name": "Corner Loft Suite",
+      "tarifs": [
+        {
+          "Tarifa flexible": {
+            "Desayuno Incluido": 152,
+            "Media Pensi\u00f3n +38,00 \u20ac": 190
+          }
+        },
+        {
+          "\u00a1Oferta exclusiva web oficial!": {
+            "Media Pensi\u00f3n": 171
+          }
+        }
+      ]
+    }
+  ]
+}
