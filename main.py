@@ -10,14 +10,15 @@ def main():
     menu = TerminalMenu(options, title='Seleccione un hotel')
     menu_entry_index = menu.show()
     selection = options[menu_entry_index]
+    hotel_name = selection.lower().replace(' ', '-')
 
     if 'gaviotas' in selection.lower():
         print(f'Executing hotel {selection}')
-        exec_gaviotas()
+        exec_gaviotas(hotel_name)
 
     if 'riu' in selection.lower():
         print(f'Executing hotel {selection}')
-        exec_riu()
+        exec_riu(hotel_name)
 
     if selection == 'Salir':
         print('Saliendo...')

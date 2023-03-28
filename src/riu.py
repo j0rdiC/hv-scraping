@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import re
 from pathlib import Path
 
 from selenium.webdriver.common.by import By
@@ -100,11 +99,11 @@ def output(data, test_num, hotel_name):
         err(e)
 
 
-def main():
+def main(hotel_name):
     for i, url in enumerate(test_urls):
         results = init(url)
         data = extract_data(results)
-        output(data, i, 'riu')
+        output(data, i, hotel_name)
         browser.driver.delete_all_cookies()
 
     browser.quit()
