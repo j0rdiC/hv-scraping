@@ -1,5 +1,3 @@
-#!/bin/env python3
-
 import os
 import sys
 import json
@@ -62,14 +60,14 @@ def extract_data(results):
         for room in room_names:
             rooms.append({'name': room.text})
 
-        tarifs = []
         tarif_cards = results.find_elements(By.CLASS_NAME, 'mi-rs-rate')
-
+        tarifs = []
         for t in tarif_cards:
             tarif = {}
             name = t.find_element(By.TAG_NAME, 'h3').text
             tarif[name] = {}  # { regime: price }
 
+            # Only one price is displayed at a time if there are multiple regimes
             radio_containers = t.find_elements(By.CLASS_NAME, 'mi-radio-container')
 
             if not radio_containers:
@@ -94,23 +92,21 @@ def output(data, test_num, hotel_name):
 
     rooms, tarifs = data
     currency = re.search(r'currency=(\w+)', browser.driver.current_url)
-    currency = currency.group(1) if currency else 'EUR'
 
-    hotel = {
+    hotel_data = {
         'name': 'Las Gaviotas',
-        'currency': currency,
+        'currency': currency.group(1) if currency else '?EUR',
         'rooms': [],
     }
 
     try:
         for i, room in enumerate(rooms):
             room['tarifs'] = tarifs[i:i+2]
-            hotel['rooms'].append(room)
+            hotel_data['rooms'].append(room)
 
         current_path = Path(__file__).parent.parent.resolve()
         if not os.path.exists(current_path / 'output'):
             os.mkdir(current_path / 'output')
-
         if not os.path.exists(current_path / 'output' / hotel_name):
             os.mkdir(current_path / 'output' / hotel_name)
 
@@ -118,7 +114,7 @@ def output(data, test_num, hotel_name):
         file_path = os.path.join(current_path, 'output', hotel_name, file_name)
 
         with open(file_path, 'w') as f:
-            json.dump(hotel, f, indent=2)
+            json.dump(hotel_data, f, indent=2)
 
     except Exception as e:
         err(e)

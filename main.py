@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 from simple_term_menu import TerminalMenu
 from src.gaviotas import main as exec_gaviotas
 from src.riu import main as exec_riu

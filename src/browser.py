@@ -1,8 +1,3 @@
-import os
-import sys
-import json
-import re
-from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
