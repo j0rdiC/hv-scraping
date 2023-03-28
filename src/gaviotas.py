@@ -3,19 +3,17 @@
 import os
 import sys
 import json
+import re
 from pathlib import Path
-from selenium import webdriver
-from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.firefox.options import Options
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
+from .browser import Browser
 
 
 # firefox_options = Options()
 # firefox_options.add_argument('--headless')
-driver: WebDriver = webdriver.Firefox()  # options=firefox_options)
 
 test_urls = [
     'https://www.hotellasgaviotas.com/bookingstep1.es.html?idtokenprovider=100376436&nights=1&clientCodeStrictSearch=true&parties=W3siYWR1bHRzIjoyLCJjaGlsZHJlbiI6W119XQ%3D%3D&lang=es&home=http%3A%2F%2Fwww.hotellasgaviotas.com%2F&currency=EUR&applyClubDiscount=true&deviceType=DESKTOP_TABLET&checkin=30%2F03%2F2023&hsri=02040&step=1',
@@ -25,22 +23,19 @@ test_urls = [
 
 def err(info):
     print(f'Error: {info}')
-    driver.quit()
+    browser.quit()
     sys.exit(1)
 
 
 def init(url):
     try:
-        driver.get(url)
+        global browser
+        browser = Browser()
+        browser.get(url)
+        browser.wait(selector='h2')
+        browser.scroll(5)
+        results = browser.find('mi-rs-results', By.CLASS_NAME)
 
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.TAG_NAME, 'h2')))
-
-        # Scroll down the page a few times to trigger the loading of additional content
-        for _ in range(5):
-            driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.END)
-
-        results = driver.find_element(By.CLASS_NAME, 'mi-rs-results')
         return results
 
     except Exception as e:
@@ -56,7 +51,9 @@ def extract_price(tarif):
         err(e)
 
 
-def extract_rooms(results):
+def extract_data(results):
+    """Extract data from the results page"""
+
     try:
         rooms = []
         room_cards = results.find_elements(By.CLASS_NAME, 'mi-rs-room-header')
@@ -83,7 +80,6 @@ def extract_rooms(results):
                     regime = radio.text
                     radio_button = radio.find_element(By.CLASS_NAME, 'mi-radio-ico')
                     radio_button.click()
-
                     tarif[name][regime] = extract_price(t)
 
             tarifs.append(tarif)
@@ -93,12 +89,16 @@ def extract_rooms(results):
         err(e)
 
 
-def output(data, test_num):
+def output(data, test_num, hotel_name):
+    """Save data to a JSON file"""
+
     rooms, tarifs = data
+    currency = re.search(r'currency=(\w+)', browser.driver.current_url)
+    currency = currency.group(1) if currency else 'EUR'
 
     hotel = {
         'name': 'Las Gaviotas',
-        'currency': 'EUR',
+        'currency': currency,
         'rooms': [],
     }
 
@@ -107,12 +107,17 @@ def output(data, test_num):
             room['tarifs'] = tarifs[i:i+2]
             hotel['rooms'].append(room)
 
-        current_path = Path(__file__).parent
+        current_path = Path(__file__).parent.parent.resolve()
         if not os.path.exists(current_path / 'output'):
             os.mkdir(current_path / 'output')
 
-        file_name = f'{current_path}/output/las-gaviotas-{test_num}.json'
-        with open(file_name, 'w') as f:
+        if not os.path.exists(current_path / 'output' / hotel_name):
+            os.mkdir(current_path / 'output' / hotel_name)
+
+        file_name = f'{hotel_name}_{test_num}.json'
+        file_path = os.path.join(current_path, 'output', hotel_name, file_name)
+
+        with open(file_path, 'w') as f:
             json.dump(hotel, f, indent=2)
 
     except Exception as e:
@@ -120,35 +125,34 @@ def output(data, test_num):
 
 
 ### TEST ###
-def make_reservation():
-    """Choose entry and exit dates"""
-    try:
-        driver.get('https://www.hotellasgaviotas.com/')
-        checkin = driver.find_element(By.ID, 'checkin')
-        checkin.click()
-        checkin.send_keys('30/03/2023')
-
-        checkout = driver.find_element(By.ID, 'checkout')
-        checkout.click()
-        checkout.send_keys('31/03/2023')
-
-        # Click on the search button
-        search = driver.find_element(By.ID, 'search')
-        search.click()
-
-    except Exception as e:
-        err(e)
+# def make_reservation(from_date, to_date):
+#     """Choose entry and exit dates"""
+#     try:
+#         browser.get('https://www.hotellasgaviotas.com/')
+#         # can i find an element by its tag and class name?
+#         open_chekin_modal = browser.find(By.CLASS_NAME, 'home-slideshow__action.js-book-toggle')
+#
+#         checkin = browser.find_element(By.ID, 'checkin')
+#         checkin.click()
+#         checkin.send_keys('30/03/2023')
+#
+#         checkout = browser.find_element(By.ID, 'checkout')
+#         checkout.click()
+#         checkout.send_keys('31/03/2023')
+#
+#         # Click on the search button
+#         search = browser.find_element(By.ID, 'search')
+#         search.click()
+#
+#     except Exception as e:
+#         err(e)
 
 
 def main():
     for i, url in enumerate(test_urls):
         results = init(url)
-        data = extract_rooms(results)
-        output(data, i)
-        driver.delete_all_cookies()
+        data = extract_data(results)
+        output(data, i, 'lasgaviotas')
+        browser.driver.delete_all_cookies()
 
-    driver.quit()
-
-
-if __name__ == '__main__':
-    main()
+    browser.quit()

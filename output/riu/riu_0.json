@@ -1,0 +1,84 @@
+{
+  "name": "riu",
+  "results": 13,
+  "rooms": [
+    {
+      "name": "1 Deluxe camas dobles",
+      "regime": "Desayuno",
+      "price": 209.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe cama king",
+      "regime": "Desayuno",
+      "price": 219.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Habitaci\u00f3n accesible ",
+      "regime": "Desayuno",
+      "price": 219.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe cama king con vistas",
+      "regime": "Desayuno",
+      "price": 229.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe cama king con terraza",
+      "regime": "Desayuno",
+      "price": 234.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe Superior cama king",
+      "regime": "Desayuno",
+      "price": 234.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe Superior camas dobles",
+      "regime": "Desayuno",
+      "price": 234.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe superior cama king con vistas",
+      "regime": "Desayuno",
+      "price": 239.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe Superior cama king con terraza",
+      "regime": "Desayuno",
+      "price": 244.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe familiar cama king",
+      "regime": "Desayuno",
+      "price": 249.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Deluxe familiar camas dobles",
+      "regime": "Desayuno",
+      "price": 249.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Jr. Suite con terraza",
+      "regime": "Desayuno",
+      "price": 299.0,
+      "currency": "EUR"
+    },
+    {
+      "name": "1 Suite Presidencial 'De Madrid al cielo'",
+      "regime": "Desayuno",
+      "price": 699.0,
+      "currency": "EUR"
+    }
+  ]
+}
