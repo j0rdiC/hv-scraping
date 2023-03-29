@@ -1,84 +1,99 @@
 {
-  "name": "riu",
+  "name": "riu_plaza_espa\u00f1a",
   "results": 13,
+  "checkin_date": "10/04/2023",
+  "checkout_date": "11/04/2023",
   "rooms": [
     {
       "name": "1 Deluxe camas dobles",
       "regime": "Desayuno",
-      "price": 209.0,
-      "currency": "EUR"
+      "price": 186.43,
+      "currency": "EUR",
+      "price_per_night": 186.43
     },
     {
       "name": "1 Deluxe cama king",
       "regime": "Desayuno",
-      "price": 219.0,
-      "currency": "EUR"
+      "price": 195.35,
+      "currency": "EUR",
+      "price_per_night": 195.35
     },
     {
       "name": "1 Habitaci\u00f3n accesible ",
       "regime": "Desayuno",
-      "price": 219.0,
-      "currency": "EUR"
+      "price": 195.35,
+      "currency": "EUR",
+      "price_per_night": 195.35
     },
     {
       "name": "1 Deluxe cama king con vistas",
       "regime": "Desayuno",
-      "price": 229.0,
-      "currency": "EUR"
+      "price": 204.27,
+      "currency": "EUR",
+      "price_per_night": 204.27
     },
     {
       "name": "1 Deluxe cama king con terraza",
       "regime": "Desayuno",
-      "price": 234.0,
-      "currency": "EUR"
+      "price": 208.73,
+      "currency": "EUR",
+      "price_per_night": 208.73
     },
     {
       "name": "1 Deluxe Superior cama king",
       "regime": "Desayuno",
-      "price": 234.0,
-      "currency": "EUR"
+      "price": 208.73,
+      "currency": "EUR",
+      "price_per_night": 208.73
     },
     {
       "name": "1 Deluxe Superior camas dobles",
       "regime": "Desayuno",
-      "price": 234.0,
-      "currency": "EUR"
+      "price": 208.73,
+      "currency": "EUR",
+      "price_per_night": 208.73
     },
     {
       "name": "1 Deluxe superior cama king con vistas",
       "regime": "Desayuno",
-      "price": 239.0,
-      "currency": "EUR"
+      "price": 213.19,
+      "currency": "EUR",
+      "price_per_night": 213.19
     },
     {
       "name": "1 Deluxe Superior cama king con terraza",
       "regime": "Desayuno",
-      "price": 244.0,
-      "currency": "EUR"
+      "price": 217.65,
+      "currency": "EUR",
+      "price_per_night": 217.65
     },
     {
       "name": "1 Deluxe familiar cama king",
       "regime": "Desayuno",
-      "price": 249.0,
-      "currency": "EUR"
+      "price": 222.11,
+      "currency": "EUR",
+      "price_per_night": 222.11
     },
     {
       "name": "1 Deluxe familiar camas dobles",
       "regime": "Desayuno",
-      "price": 249.0,
-      "currency": "EUR"
+      "price": 222.11,
+      "currency": "EUR",
+      "price_per_night": 222.11
     },
     {
       "name": "1 Jr. Suite con terraza",
       "regime": "Desayuno",
-      "price": 299.0,
-      "currency": "EUR"
+      "price": 266.71,
+      "currency": "EUR",
+      "price_per_night": 266.71
     },
     {
       "name": "1 Suite Presidencial 'De Madrid al cielo'",
       "regime": "Desayuno",
-      "price": 699.0,
-      "currency": "EUR"
+      "price": 623.51,
+      "currency": "EUR",
+      "price_per_night": 623.51
     }
   ]
 }

@@ -1,16 +1,16 @@
 #!/bin/env python3
 
 from simple_term_menu import TerminalMenu
-from src.gaviotas import main as exec_gaviotas
-from src.riu import main as exec_riu
+from src.scrapers.gaviotas import main as exec_gaviotas
+from src.scrapers.riu import main as exec_riu
 
 
 def main():
-    options = ['Las Gaviotas', 'Riu (Plz. Espana)', 'Salir']
+    options = ['Las Gaviotas', 'Riu Plaza España', 'Salir']
     menu = TerminalMenu(options, title='Seleccione un hotel')
     menu_entry_index = menu.show()
     selection = options[menu_entry_index]
-    hotel_name = selection.lower().replace(' ', '-')
+    hotel_name = selection.lower().replace(' ', '_')
 
     if 'gaviotas' in selection.lower():
         print(f'Executing hotel {selection}')

@@ -1,6 +1,10 @@
 {
-  "name": "Las Gaviotas",
+  "name": "las_gaviotas",
+  "results": 3,
   "currency": "EUR",
+  "checkin": "12/04/2023",
+  "checkout": "13/04/2023",
+  "nights": 1,
   "rooms": [
     {
       "name": "Habitaci\u00f3n Doble",
@@ -22,14 +26,14 @@
       "name": "Suite Premium",
       "tarifs": [
         {
-          "\u00a1Oferta exclusiva web oficial!": {
-            "Media Pensi\u00f3n": 171
-          }
-        },
-        {
           "Tarifa flexible": {
             "Desayuno Incluido": 152,
             "Media Pensi\u00f3n +38,00 \u20ac": 190
+          }
+        },
+        {
+          "\u00a1Oferta exclusiva web oficial!": {
+            "Media Pensi\u00f3n": 171
           }
         }
       ]
@@ -39,13 +43,13 @@
       "tarifs": [
         {
           "Tarifa flexible": {
-            "Desayuno Incluido": 152,
-            "Media Pensi\u00f3n +38,00 \u20ac": 190
+            "Desayuno Incluido": 182,
+            "Media Pensi\u00f3n +45,60 \u20ac": 228
           }
         },
         {
           "\u00a1Oferta exclusiva web oficial!": {
-            "Media Pensi\u00f3n": 171
+            "Media Pensi\u00f3n": 216
           }
         }
       ]
