@@ -18,7 +18,7 @@ class Browser:
         self.driver.get(url)
 
     def wait(self, time=10, type=By.TAG_NAME, selector='h2'):
-        WebDriverWait(self.driver, time).until(
+        return WebDriverWait(self.driver, time).until(
             EC.presence_of_element_located((type, selector))
         )
 
@@ -36,8 +36,8 @@ class Browser:
     def quit(self):
         self.driver.quit()
 
-    def __del__(self):
-        self.quit()
+    # def __del__(self):
+    #     self.quit()
 
 
 class Scraper(Browser):
