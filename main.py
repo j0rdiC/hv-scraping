@@ -7,7 +7,7 @@ from src.scrapers.riu import main as exec_riu
 
 def main():
     options = ['Las Gaviotas', 'Riu Plaza España', 'Salir']
-    menu = TerminalMenu(options, title='Seleccione un hotel')
+    menu = TerminalMenu(options, title='Seleccione un hotel:')
     menu_entry_index = menu.show()
     selection = options[menu_entry_index]
     hotel_name = selection.lower().replace(' ', '_')

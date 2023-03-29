@@ -3,11 +3,9 @@ import sys
 import json
 import re
 from pathlib import Path
-
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-
 from ..factory import Scraper
 
 

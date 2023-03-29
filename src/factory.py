@@ -46,7 +46,7 @@ class Scraper(Browser):
         self.url = url
         self.get(self.url)
         print('Waiting for page to load...')
-        self.wait(selector=selector)
+        self.wait(type=type, selector=selector)
         self.scroll(scroll)
 
     def fetch_html(self, selector, type):
