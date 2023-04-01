@@ -36,8 +36,8 @@ class Browser:
     def quit(self):
         self.driver.quit()
 
-    # def __del__(self):
-    #     self.quit()
+    def __del__(self):
+        self.quit()
 
 
 class Scraper(Browser):

@@ -66,7 +66,6 @@ def make_reservation():
         return calendar_left, calendar_right
 
     try:
-
         month_left = get_month(left=True)
         month_right = get_month(right=True)
 
@@ -107,9 +106,6 @@ def make_reservation():
                 if day.text == d:
                     day.click()
                     break
-
-        # Make it so that it gets both left and right calendars and choose the date using both
-        # Choose date by m 22 a 23
 
         # Submit dates
         time.sleep(1)

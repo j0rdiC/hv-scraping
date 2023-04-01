@@ -10,6 +10,7 @@ from ..factory import Scraper, BeautifulSoup
 
 test_urls = [
     'https://www.riu.com/es/booking/rooms?search=%7B%22tipoBusqueda%22:%22TIPO_BUSQUEDA_HOTEL%22,%22paisDestino.pais%22:%22Espa%C3%B1a%22,%22paisDestino.id_pais%22:%22Espa%C3%B1a%22,%22paisDestino.destino%22:%22z_201058%22,%22paisDestino.destino_name%22:%22Madrid%22,%22paisDestino.id_destino%22:%22Madrid%22,%22paisDestino.hotel_name%22:%22Hotel%20Riu%20Plaza%20Espa%C3%B1a%22,%22paisDestino.hotel%22:%22582%22,%22huespedes.numeroHabitaciones%22:1,%22huespedes.habitaciones%5B0%5D.numeroAdultos%22:2,%22huespedes.habitaciones%5B0%5D.numeroNinos%22:0,%22numeroAdultosTotal%22:2,%22numeroNinosTotal%22:0,%22fechas.fechaEntradaAsString%22:%2210%2F04%2F2023%22,%22fechas.fechaSalidaAsString%22:%2211%2F04%2F2023%22,%22dateFormat.formato%22:%22DD%2FMM%2FYYYY%22,%22fechaEntradaMs%22:1681077600000,%22fechaSalidaMs%22:1681164000000,%22codigoPromocional%22:%22%22%7D',
+    # 'https://www.riu.com/es/booking/rooms?search=%7B%22tipoBusqueda%22:%22TIPO_BUSQUEDA_HOTEL%22,%22paisDestino.pais%22:%22Espa%C3%B1a%22,%22paisDestino.id_pais%22:%22Espa%C3%B1a%22,%22paisDestino.destino%22:%22d_9479%22,%22paisDestino.destino_name%22:%22Lanzarote%22,%22paisDestino.id_destino%22:%22Lanzarote%22,%22paisDestino.hotel_name%22:%22Hotel%20Riu%20Paraiso%20Lanzarote%22,%22paisDestino.hotel%22:%22611%22,%22huespedes.numeroHabitaciones%22:1,%22huespedes.habitaciones%5B0%5D.numeroAdultos%22:2'
 ]
 
 
